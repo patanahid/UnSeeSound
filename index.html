@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnSeeSound</title>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG84MD5');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="google-site-verification" content="oC6fAa6aKlU8igiQyqJSahdhKTTdVmLw4OkcCv7lC6U" />
+    <meta name="title" content="UnSeeSound - Use sound to copy text from screen to notebook" />
+    <meta name="description"
+        content="UnSeeSound is a helpful utility tool designed to assist users when writing or copying text from devices such as mobiles and desktops. It eliminates the need to constantly switch focus between the device's screen and a separate notebook. UnSeeSound converts your input into spoken words, making it easier for you to transcribe or review your text." />
+    <link rel="icon" href="logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NRBHLR3K8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7NRBHLR3K8');
+    </script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG84MD5" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <input type="checkbox" name="" id="autoNextWord" style="display: none;">
+    <!-- HEADER -->
+
+    <header>
+        <nav class="nav-bar">
+            <ul type="none">
+                <!-- LOGO -->
+                <li>
+                    <a href="/index.html" title="UnSeeSound">
+                        <div class="nav-logo">
+                            <img src="logo.svg" width="40px" alt="UnSeeSound">
+                            <h1 class="nav-logo-text">UnSeeSound</h1>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="nav-btns">
+
+
+                        <!-- PROMPT ENHANCER BUTTON-->
+                        <a href="#" title="Prompt Enhancer" onclick="window.promptEnhancerDialog.showModal()">
+                            <div class="nav-btn prompt-enhancer">
+                                <img src="prompt-enhancer-logo.svg" width="30px" alt="">
+
+                                Prompt Enhancer
+                            </div>
+                        </a>
+
+
+                        <!-- HOW TO USE BUTTON-->
+                        <a href="#" title="How to Use UnSeeSound" onclick="window.howToUseDialog.showModal()">
+                            <div class="nav-btn how-to-use">
+                                <img src="how-to-use-logo.svg" width="30px" alt="">
+                                How to use
+                            </div>
+                        </a>
+                        <!-- HAMBURGER ICON -->
+                        <a href="#" title="Hamburger-menu" onclick="toggleMenu()">
+                            <div class="nav-btn hamburger">
+                                <img src="hamburger-logo.svg" width="25px" alt="">
+                            </div>
+                        </a>
+
+                        <!-- SETTINGS BUTTON -->
+
+                        <a href="#" title="Text to Speech Settings" onclick="window.settingsDialog.showModal()">
+                            <div class="nav-btn settings">
+                                <img src="settings-logo.svg" width="33px" alt="">
+                            </div>
+                        </a>
+
+
+
+                    </div>
+
+            </ul>
+
+            <!-- MOBILE NAV MENU  -->
+
+            <div class="mobile-menu" id="mobile-side-bar">
+
+                <div class="mobile-menu-nav">
+
+                    <a title="Logo" href="/index.html">
+                        <div class="nav-logo">
+                            <img src="logo.svg" width="40px" alt="UnSeeSound">
+                            <p class="nav-logo-text">UnSeeSound</p>
+                        </div>
+                    </a>
+
+                    <a title="Close Menu" href="#" class="nav-btn menu-close-btn" onclick="closeMenu()">
+                        <img src="close-icon.svg" width="25px" alt="close">
+                    </a>
+
+
+                </div>
+
+                <nav>
+                    <ul type="none" id="mobile-sidebar-list">
+
+                        <div class="nav-btns-mobile">
+                            <!-- PROMPT ENHANCER BUTTON-->
+                            <a href="#" title="Prompt Enhancer" onclick="window.promptEnhancerDialog.showModal()">
+                                <div class="nav-btn prompt-enhancer">
+                                    <img src="prompt-enhancer-logo.svg" width="30px" alt="">
+
+                                    Prompt Enhancer
+                                </div>
+                            </a>
+                            </li>
+                            <li>
+
+                                <!-- HOW TO USE BUTTON-->
+                                <a href="#" title="How to use UnSeeSound" onclick="window.howToUseDialog.showModal()">
+                                    <div class="nav-btn how-to-use">
+                                        <img src="how-to-use-logo.svg" width="30px" alt="">
+                                        How to use
+                                    </div>
+                            </li>
+                            <li>
+                                </a>
+
+                        </div>
+                        </li>
+
+                    </ul>
+
+
+
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- SETTINGS DIALOG -->
+    <dialog id="settingsDialog">
+
+        <div class="dialog dialog-content">
+            <div class="dialog-heading">
+                Settings
+                <a href="#" title="Text To Speech Settings" class="nav-btn settings-close-btn"
+                    onclick="window.settingsDialog.close()">
+                    <img src="close-icon.svg" width="20px" alt="Close">
+                </a>
+            </div>
+
+            <div class="language">
+                Language / Voices:
+                <select name="language" id="voices">
+
+                </select>
+            </div>
+            <div class="speed">
+                Speed:
+                <input id="speed-slider" type="range" class="blue range" min="0.5" max="2" step="0.01" value="1"
+                    list="tickmarks" />
+
+                </select>
+            </div>
+            <div class="pitch">
+                Pitch:
+                <input id="pitch-slider" type="range" class="blue range" min="0.5" max="2" step="0.1" value="1"
+                    list="tickmarks" />
+
+                </select>
+            </div>
+            <div class="volume">
+                Volume:
+                <input id="volume-slider" type="range" class="blue range" min="0.5" max="2" step="0.1" value="1"
+                    list="tickmarks" />
+
+                </select>
+            </div>
+            <div class="customization-container">
+                <div class="dialog-heading">
+                    <h2 class="dialog-heading-inline-container">Customization</h2>
+                </div>
+                <div class="indent-30px dialog-sub-content">
+
+                    <!-- LAYOUT 1 -->
+                    <input type="radio" name="button-layout" id="button-layout-1" checked>
+                    <label for="button-layout-1" class="button-layout-container" id="button-layout-1-container">
+                        <div class="normal-button-visual">
+                            <div class="visual-non-mobile-buttons">
+                                <span class="visual-button blue">Start</span>
+                                <span class="visual-button red">Stop</span>
+                            </div>
+                            <span class="visual-button green">Next Word</span>
+                            <span class="blue-green visual-button">Spelling</span>
+                        </div>
+                    </label>
+                </div>
+                <!-- LAYOUT 2 -->
+                <div class="indent-30px dialog-sub-content">
+                    <input type="radio" name="button-layout" id="button-layout-2">
+                    <label for="button-layout-2" class="button-layout-container">
+
+                        <div class="normal-button-visual">
+                            <div class="visual-non-mobile-buttons">
+                                <span class="visual-button blue">Start</span>
+                                <span class="visual-button green">Next Word</span>
+                            </div>
+                            <span class="visual-button red">Stop</span>
+                            <span class="blue-green visual-button">Spelling</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        </div>
+    </dialog>
+
+
+    <!-- HOW TO USE DIALOG -->
+    <dialog id="howToUseDialog">
+
+        <div class="dialog-heading how-to-use-heading">
+            <h2>What is UnSeeSound and how to use it?</h2>
+            <a href="#" title="Close dialog" class="nav-btn settings-close-btn" onclick="window.howToUseDialog.close()">
+                <img src="close-icon.svg" width="20px" alt="Close">
+            </a>
+        </div>
+        <div class="how-to-use-content dialog dialog-content">
+
+
+            <p>UnSeeSound is a helpful utility tool designed to assist users when writing or copying text from devices
+                such
+                as mobiles and desktops. It eliminates the need to constantly switch focus between the device's screen
+                and a
+                separate notebook. UnSeeSound converts your input into spoken words, making it easier for you to
+                transcribe
+                or review your text.</p>
+
+            <p>Using UnSeeSound is incredibly simple. Just follow these steps:</p>
+            <br>
+            <p id="indent-30px">
+                1. Type your desired text in the input box provided. <br>
+                2. Click the "Star t" button to initiate the text-to-speech conversion. <br>
+                3. The first word will be spoken immediately after you enter it in the input box. <br>
+                4. To speak the next word, simply press the Spacebar on your keyboard. On mobile devices, tap the "Next
+                Word" button. <br>
+                5. If you're having trouble understanding the last spoken word, you can click the keys above the
+                Spacebar
+                ("z," "x," "c," "v," "b," "n," "m") to get the spelling of the last word. <br>
+                6. Repeat steps 4 and 5 until you have completed your text. <br>
+            </p>
+            <br><br>
+            <p>
+                If you have any questions or need further assistance, please feel free to tell us at <a
+                    title="Mail to unseesound@gmail.com" href="mailto: unseesound@gmail.com">UnSeeSound@gmail.com</a>.
+                We'll be happy to help you out!</p>
+
+        </div>
+    </dialog>
+
+
+
+    <!-- PROMPT ENHANCER DIALOG -->
+    <dialog id="promptEnhancerDialog">
+
+        <div class="dialog-heading prompt-enhancer-heading">
+            Prompt Enhancer
+            <a href="#" title="Close dialog" class="nav-btn settings-close-btn"
+                onclick="window.promptEnhancerDialog.close()">
+                <img src="close-icon.svg" width="20px" alt="Close">
+            </a>
+        </div>
+        <div class="prompt-enhancer-content dialog dialog-content">
+            To make Your response sound more better by adding the punctiuation as words so the text to speech can speak
+            it. <br><br> Using A.I.'s own mind so it could also read code like if the code was &lthtml&gt, it would be
+            spoken as html tag, just like a human would speak. <br><br>You could copy the prompt by clicking the below
+            copy button to copy
+            the prompt.
+            <div class="copy-btn-container">
+                <button class="btn" id="copyBtn">
+                    <!-- <img src="copy-icon.svg" alt="" width="25px"> -->
+                    COPY</button>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- TEXTAREA -->
+    <span class="textarea-container">
+        <!-- <img class="paste-btn nav-btn" src="paste.svg" width="25px" alt="Paste"> -->
+        <textarea name="input" id="input-textarea" placeholder="Enter your input here"></textarea>
+
+
+
+    </span>
+
+    <div class="current-word">
+        <div class="prev-word-btn-skip nav-btn">
+            <img src="prev-icon.svg" alt="Prev">
+        </div>
+
+        <button class="repeat-btn" title="Repeat the current word">
+            <span class="current-word-with-img">
+                <span class="current-word-inline-container">a</span>
+                <img src="repeat.svg" alt="Repeat" width="25px" title="Repeat the current word">
+            </span>
+        </button>
+
+        <div class="next-word-btn-skip nav-btn">
+            <img src="next-icon.svg" alt="Prev">
+        </div>
+    </div>
+
+        <div class="all-buttons">
+            <!-- BUTTONS -->
+            <div class="buttons-container">
+                <span class="buttons">
+                    <button class="start-btn btn" title="Start the text to speech"> Start </button>
+                    <button class="stop-btn btn" title="Stop the text to speech"> Stop </button>
+                </span>
+            </div>
+            <!--MOBILE ONLY BUTTONS-->
+            <div class="mobile-btns-container">
+                <span class="mobile-btns">
+                    <button class="next-word-btn btn" title="Move to the next word"> Next Word </button>
+                    <button class="spelling-btn btn" title="Get the spelling of the current word"> Spelling </button>
+                </span>
+            </div>
+        </div>
+        <!-- FEEDBACK FORM -->
+
+
+        <button data-tf-popup="LJAAEnJs" data-tf-opacity="100" data-tf-size="100"
+            data-tf-iframe-props="title=Feedback - UnSeeSound" data-tf-open-value="90" data-tf-auto-close="2000"
+            data-tf-transitive-search-params data-tf-medium="snippet" class="feedback-btn btn">
+            <img src="Feedback-white.svg" id="feed-white" width="20px" alt="Feedback">
+            <img src="Feedback-black.svg" id="feed-black" width="20px" alt="Feedback">
+            <p>Give Feedback</p>
+        </button>
+        <script src="//embed.typeform.com/next/embed.js"></script>
+
+
+        <script src="app.js"></script>
+        <!-- <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script> -->
+        <div class="credit">
+            <footer>
+                <p class="code less">&lt;</p>
+                <p class="credit-content less"> Made by
+                <p class="name less">ROHIT_Yadav </p>
+                </p>
+                <p class="code less">&gt;</p>
+
+            </footer>
+        </div>
+</body>
+
+</html>
